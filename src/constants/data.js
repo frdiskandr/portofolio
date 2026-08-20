@@ -281,15 +281,14 @@ export const myProjects = [
 
 export const experiences = [
   {
-    title: "Full-Stack Developer",
+    title: "Full-Stack TypeScript Developer",
     job: "PT. Edukaarir Global Nusantara",
-    date: "July 2025 – Present",
+    date: "July 2025 – June 2026",
     contents: [
-      "Designed and developed core modules for internal Human Resource Management (HRM) and Learning Management System (LMS), improving workflow efficiency and employee learning engagement.",
-      "Optimized system architecture and implemented clean code practices to ensure scalability, maintainability, and long-term sustainability of the applications.",
-      "Actively collaborated in agile sprints, contributing to sprint planning, daily stand-ups, and retrospective sessions to achieve feature delivery on time.",
-      "Participated in cross-functional collaboration with UI/UX designers and QA engineers to ensure high-quality product releases.",
-      "Applied modern development tools (Docker, Git, CI/CD pipelines) to improve deployment efficiency and reduce system downtime.",
+      "Developed a multi-tenant architecture for HRM and LMS ecosystems using Next.js on the client side and Node.js on the server side, serving 100+ users.",
+      "Designed complex relational schemas on PostgreSQL and implemented type-safe database queries using Prisma ORM for Enterprise Resource Planning (ERP) module efficiency.",
+      "Optimized the deployment pipeline using Docker containerization with Node Alpine base images, reducing build size and increasing release speed by 30%.",
+      "Collaborated in Agile sprints to build solid REST API endpoints with end-to-end data validation using Zod and centralized error handling.",
     ],
   },
 ];

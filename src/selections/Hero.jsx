@@ -1,45 +1,49 @@
-import React from 'react'
+import React, { Suspense, lazy, useEffect, useRef, useState } from 'react'
 import HeroText from '../components/HeroText'
 import ParalaxBackground from '../components/ParalaxBackground'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Astronaut } from '../components/Astronaut'
-import { Float, OrbitControls } from '@react-three/drei'
-import { useMediaQuery } from 'react-responsive'
-import { easing } from 'maath'
-import { Suspense } from 'react'
-import Loader from '../components/Loader'
 
+const AstronautScene = lazy(() => import('../components/AstronautScene'))
+
+const useInView = (threshold = 0) => {
+    const ref = useRef(null)
+    const [inView, setInView] = useState(true)
+
+    useEffect(() => {
+        const el = ref.current
+        if (!el || !('IntersectionObserver' in window)) return
+        const observer = new IntersectionObserver(
+            ([entry]) => setInView(entry.isIntersecting),
+            { rootMargin: '50% 0px 50% 0px', threshold }
+        )
+        observer.observe(el)
+        return () => observer.disconnect()
+    }, [threshold])
+
+    return [ref, inView]
+}
 
 const Hero = () => {
-    const isMobile = useMediaQuery({ maxWidth: 853 });
+    const [sectionRef, inView] = useInView()
 
     return (
-        <section id='home' className='flex items-start justify-center md:items-start md:justify-start min-h-screen overflow-hidden c-space'>
+        <section ref={sectionRef} id='home' className='flex items-start justify-center md:items-start md:justify-start min-h-screen overflow-hidden c-space'>
             <HeroText />
             <ParalaxBackground />
             <figure className='absolute inset-0' style={{ width: "100vw", height: "100vh" }}>
-                <Canvas camera={{ position: [0, 1, 3] }}>
+                {inView && (
                     <Suspense fallback={<Loader />}>
-                        <Float>
-                            <Astronaut
-                                scale={isMobile && (0.23)}
-                                position={isMobile && ([0, -1.5, 0])} />
-                        </Float>
-                        <Rig />
+                        <AstronautScene />
                     </Suspense>
-                </Canvas>
+                )}
             </figure>
         </section>
     )
 }
 
-function Rig() {
-    return useFrame((state, delta) => {
-        easing.damp3(
-            state.camera.position,
-            [state.mouse.x / 10, 1 + state.mouse.y/10, 3],
-            0.5, delta)
-    })
-}
+const Loader = () => (
+    <div className="flex items-center justify-center w-full h-full">
+        <div className="w-10 h-10 rounded-full border-2 border-white/20 border-t-lavender animate-spin" />
+    </div>
+)
 
 export default Hero

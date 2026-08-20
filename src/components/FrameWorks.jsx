@@ -2,14 +2,18 @@ import { OrbitingCircles } from "./OrbitCircles";
 
 export function Frameworks() {
   const skills = [
-    "auth0",
-    "css3",
     "git",
     "html5",
     "javascript",
     "laravel",
     "golang",
     "docker",
+    "kubernetes",
+    "kafka",
+    "postgresql",
+    "clickhouse",
+    "n8n",
+    "python",
     "nextjs",
     "react",
     "tailwindcss",

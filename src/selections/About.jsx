@@ -16,7 +16,7 @@ const About = () => {
             <div className='grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[18rem] mt-12'>
                 {/* grid */}
                 <div className="flex items-end grid-default-color grid-1">
-                    <img src="assets/coding-pov.png" alt="coding-img" className='absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]' />
+                    <img src="assets/coding-pov.webp" alt="coding-img" width={1200} height={700} loading="lazy" decoding="async" className='absolute scale-[1.75] -right-[5rem] -top-[1rem] md:scale-[3] md:left-50 md:inset-y-10 lg:scale-[2.5]' />
                     <div className="z-10">
                         <p className='headtext'>Hi, I'm Faried Iskandar</p>
                         <p className='subtext'>Full-Stack Developer with {experience} years of experience building scalable web applications. Skilled in Golang, Node.Js/Typescript, and Python</p>

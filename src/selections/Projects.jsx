@@ -18,7 +18,7 @@ const Projects = () => {
         <section
             id="portofolio"
             onMouseMove={handleMouseMove}
-            className="relative c-space section-spacing"
+            className="relative c-space section-spacing cv-auto"
         >
             <h2 className="text-heading">My Selected Projects</h2>
             <div className="bg-linear-to-r from-transparent via-neutral-700 to-transparent mt-12 h-px w-full" />
